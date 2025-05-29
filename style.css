@@ -1,0 +1,94 @@
+html, body {
+    background-color: rgb(28, 28, 28);
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    height:100%;
+    background-image: url("assets/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  header {
+    background-color: rgb(61, 60, 60);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.5em;
+    gap: 10px;
+  }
+  
+  button {
+    position: relative; /* Needed for absolute positioning of ripple */
+    overflow: hidden; /* Hide ripple overflow */
+    border: none;
+    background-color: #699349;
+    border-radius: 20rem;
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #80b459;
+  }
+  
+  button:active {
+    background-color: #53743a;
+  }
+  
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    pointer-events: none; 
+    opacity: 1;
+  }
+  
+  @keyframes ripple-effect {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .container, #about, #download, #code {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    padding:0;
+    
+    margin:0;
+    text-align: center;
+  }
+
+
+.slogan  {
+    font-size: 3em;
+    line-height: 1;
+}
+
+.br {
+    height: 0.1rem;
+    width: 30rem;
+    background-color: white;
+}
+
+.unrecommended {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: #699349;
+    color: #c5ff98
+}
