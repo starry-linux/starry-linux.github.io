@@ -1,94 +1,199 @@
 html, body {
-    background-color: rgb(28, 28, 28);
-    margin: 0;
-    padding: 0;
-    font-family: "DM Sans", sans-serif;
-    color: white;
-    height:100%;
-    background-image: url("assets/img/banner.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  
-  header {
-    background-color: rgb(61, 60, 60);
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 0.5em;
-    gap: 10px;
-  }
-  
-  button {
-    position: relative; /* Needed for absolute positioning of ripple */
-    overflow: hidden; /* Hide ripple overflow */
-    border: none;
-    background-color: #699349;
-    border-radius: 20rem;
-    font-family: "DM Sans", sans-serif;
-    color: white;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #80b459;
-  }
-  
-  button:active {
-    background-color: #53743a;
-  }
-  
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(0);
-    pointer-events: none; 
-    opacity: 1;
-  }
-  
-  @keyframes ripple-effect {
-    to {
+  background-color: rgb(28, 28, 28);
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  background-image: url("assets/img/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  height: 100%;
+}
+
+header {
+  background-color: rgb(61, 60, 60);
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5em 1em;
+  margin:0;
+  width:100%;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+header img {
+  width: 48px;
+  height: auto;
+}
+
+header h1 {
+  font-size: 1.5em;
+  margin: 0 0.5em 0 0;
+}
+
+header hr {
+  display: none; /* Hide on mobile, can show on desktop if needed */
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background-color: #699349;
+  border-radius: 20rem;
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0.2em 0.3em;
+  min-width: 100px;
+}
+
+button:hover {
+  background-color: #80b459;
+}
+
+button:active {
+  background-color: #53743a;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events: none; 
+  opacity: 1;
+}
+
+@keyframes ripple-effect {
+  to {
       transform: scale(4);
       opacity: 0;
-    }
   }
+}
 
-  .container, #about, #download, #code {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    height:100%;
-    padding:0;
-    
-    margin:0;
-    text-align: center;
-  }
-
+.container, #about, #download, #faq {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 1em;
+  margin: 0;
+  text-align: center;
+  gap: 10px;
+}
 
 .slogan  {
-    font-size: 3em;
-    line-height: 1;
+  font-size: 3em;
+  line-height: 1;
+  margin: 0.5em 0;
 }
 
 .br {
-    height: 0.1rem;
-    width: 30rem;
-    background-color: white;
+  height: 0.1rem;
+  width: 30rem;
+  max-width: 90vw;
+  background-color: white;
+  margin: 1em auto;
 }
 
 .unrecommended {
-    background-color: transparent;
-    border-style: solid;
-    border-width: 0.1em;
-    border-color: #699349;
-    color: #c5ff98
+  background-color: transparent;
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: #699349;
+  backdrop-filter:blur(1px);
+  color: #c5ff98;
+}
+
+.question {
+  background-color: #6993498e;
+  backdrop-filter:blur(5px);
+  border-radius: 15rem;
+  padding: 0em 1.5em 0em 1.5em;
+}
+
+.popup {
+  width:100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position:fixed;
+  z-index: 5;
+  top:0px;
+  opacity: 1;
+  animation: fadeOut 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+code {
+  background-color: #53743a;
+
+  border-radius: 100rem;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+/* --- Responsive Styles for Mobile --- */
+@media (max-width: 600px) {
+  header {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.5em 0.5em;
+  }
+  header img {
+      width: 36px;
+  }
+  header h1 {
+      font-size: 1.1em;
+      margin: 0.2em 0;
+  }
+  button {
+      font-size: 0.95em;
+      padding: 0.5em 0.8em;
+      min-width: 80px;
+  }
+  .slogan {
+      font-size: 2em;
+  }
+  .br {
+      width: 90vw;
+      min-width: 120px;
+  }
+  .container, #about, #download, #code {
+      padding: 0 0.3em;
+  }
 }
